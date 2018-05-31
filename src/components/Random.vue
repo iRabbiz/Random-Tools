@@ -39,14 +39,17 @@ export default {
     // }
     randomFunc () {
       let lengthNum = this.items.length
-      let randomTimes = 60
+      let randomTimes = 70
       this.randomNum = Math.floor(Math.random() * Math.floor(lengthNum))
       this.randomCount += 1
-      if (this.randomCount > randomTimes / 2) {
+      if (this.randomCount > randomTimes / 3) {
         this.randomDelay += 10
       }
       if (this.randomCount < randomTimes) {
         setTimeout(this.randomFunc, this.randomDelay)
+      } else {
+        this.randomDelay = 100
+        this.randomCount = 0
       }
     }
   },
